@@ -1,0 +1,26 @@
+---
+- name: Install and Start nginx
+  hosts: webservers
+  become: true
+  tasks:
+  - name: Update package cache
+    apt:
+      update_cache: true
+
+  - name: Upgrade all packages
+    apt:
+      upgrade: yes
+      autoremove: yes
+      autoclean: yes
+
+  - name: Install Nginx
+    apt: 
+      name: nginx
+      state: present
+
+  - name: Start Nginx
+    service:
+      name: nginx
+      state: started
+
+

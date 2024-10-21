@@ -1,0 +1,6 @@
+---
+- name: Upgrade Ubuntu package cache
+  apt:
+    upgrade: true
+    autoremove: true
+    autoclean: true
